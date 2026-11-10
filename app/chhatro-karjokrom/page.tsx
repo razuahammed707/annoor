@@ -1,8 +1,5 @@
 import Header from "@/components/Header";
-import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import FloatingSocial from "@/components/FloatingSocial";
-import Link from "next/link";
 
 export const metadata = {
   title: "ছাত্রদের কার্যক্রম | জামিআ'তুন নূর আস সিরাজিয়া আল ইসলামিয়া",
@@ -14,13 +11,9 @@ export default function ChhatroKarjokromPage() {
   return (
     <>
       <Header />
-      <Navbar />
-      <main>
+      <main id="main">
         <section className="page-content-section">
           <div className="container">
-            <Link href="/" className="back-link">
-              ← হোম
-            </Link>
             <h1 className="page-title">ছাত্রদের কার্যক্রম</h1>
             <div className="porichiti-content">
               <p>
@@ -38,7 +31,6 @@ export default function ChhatroKarjokromPage() {
         </section>
       </main>
       <Footer />
-      <FloatingSocial />
     </>
   );
 }

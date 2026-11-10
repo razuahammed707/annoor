@@ -16,7 +16,7 @@ export default function RootLayout({
     <html lang="bn">
       <head>
         <link
-          href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Amiri:wght@400;700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Noto+Serif+Bengali:wght@500;600&family=Amiri:wght@400;700&display=swap"
           rel="stylesheet"
         />
       </head>

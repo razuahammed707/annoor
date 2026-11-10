@@ -1,8 +1,5 @@
-import Link from "next/link";
 import Header from "@/components/Header";
-import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import FloatingSocial from "@/components/FloatingSocial";
 
 export const metadata = {
   title: "মূলনীতি | জামিআ'তুন নূর আস সিরাজিয়া আল ইসলামিয়া",
@@ -14,13 +11,9 @@ export default function MulnitiPage() {
   return (
     <>
       <Header />
-      <Navbar />
-      <main>
+      <main id="main">
         <section className="page-content-section">
           <div className="container">
-            <Link href="/" className="back-link">
-              ← হোম
-            </Link>
             <h1 className="page-title">মূলনীতি</h1>
             <div className="porichiti-content">
               <p className="about-lead">
@@ -94,7 +87,6 @@ export default function MulnitiPage() {
         </section>
       </main>
       <Footer />
-      <FloatingSocial />
     </>
   );
 }

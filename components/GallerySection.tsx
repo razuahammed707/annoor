@@ -54,13 +54,15 @@ export default function GallerySection() {
   const fbContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (thumbnailsRef.current[activeIndex]) {
-      thumbnailsRef.current[activeIndex]?.scrollIntoView({
-        behavior: "smooth",
-        block: "nearest",
-        inline: "center",
-      });
-    }
+    // Scroll only the thumbnail strip; scrollIntoView also scrolled the page on load.
+    const el = thumbnailsRef.current[activeIndex];
+    const strip = el?.parentElement;
+    if (!el || !strip) return;
+    const offset = el.getBoundingClientRect().left - strip.getBoundingClientRect().left;
+    strip.scrollTo({
+      left: strip.scrollLeft + offset - (strip.clientWidth - el.clientWidth) / 2,
+      behavior: "smooth",
+    });
   }, [activeIndex]);
 
   useEffect(() => {
@@ -86,7 +88,7 @@ export default function GallerySection() {
   return (
     <section className="gallery-section" id="gallery">
       <div className="container">
-        <div className="section-title">🖼️ ছবি গ্যালারি</div>
+        <div className="section-title">ছবি গ্যালারি</div>
 
         <div className="gallery-grid" style={{ marginTop: 20 }}>
           {/* Photo Carousel */}
@@ -170,22 +172,21 @@ export default function GallerySection() {
             display: "flex", 
             flexDirection: "column",
             height: "100%",
-            background: "linear-gradient(to bottom, #ffffff, #f0f2f5)",
-            borderRadius: "12px",
-            boxShadow: "0 4px 12px rgba(0, 0, 0, 0.08)",
-            border: "1px solid rgba(0,0,0,0.05)",
+            background: "var(--white)",
+            borderRadius: "14px",
+            border: "1px solid var(--light-gray)",
             overflow: "hidden"
           }}>
             <div className="facebook-embed-header" style={{
               padding: "16px 20px",
-              background: "linear-gradient(135deg, #0d5bc5 0%, #0a4090 100%)",
-              color: "white",
+              background: "var(--paper)",
+              color: "var(--text-dark)",
+              borderBottom: "1px solid var(--light-gray)",
               display: "flex",
               alignItems: "center",
               gap: "12px",
               fontWeight: "600",
-              fontSize: "1.05rem",
-              boxShadow: "0 2px 10px rgba(24, 119, 242, 0.2)"
+              fontSize: "1.05rem"
             }}>
               <span className="fb-icon" style={{ 
                 background: "white", 
@@ -212,10 +213,10 @@ export default function GallerySection() {
                 style={{
                   marginLeft: "auto",
                   fontSize: "0.8rem",
-                  background: "rgba(255,255,255,0.2)",
-                  padding: "4px 10px",
+                  border: "1px solid var(--light-gray)",
+                  padding: "4px 12px",
                   borderRadius: "20px",
-                  color: "white",
+                  color: "var(--primary-green)",
                   textDecoration: "none",
                   transition: "background 0.2s"
                 }}

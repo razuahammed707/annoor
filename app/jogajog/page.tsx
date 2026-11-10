@@ -1,8 +1,5 @@
-import Link from "next/link";
 import Header from "@/components/Header";
-import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import FloatingSocial from "@/components/FloatingSocial";
 
 export const metadata = {
   title: "যোগাযোগ | জামিআ'তুন নূর আস সিরাজিয়া আল ইসলামিয়া",
@@ -38,13 +35,9 @@ export default function JogajogPage() {
   return (
     <>
       <Header />
-      <Navbar />
-      <main>
+      <main id="main">
         <section className="page-content-section jogajog-section">
           <div className="container">
-            <Link href="/" className="back-link">
-              ← হোম
-            </Link>
             <h1 className="page-title">যোগাযোগ</h1>
 
             <div className="jogajog-grid">
@@ -115,7 +108,6 @@ export default function JogajogPage() {
         </section>
       </main>
       <Footer />
-      <FloatingSocial />
     </>
   );
 }
